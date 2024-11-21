@@ -45,15 +45,45 @@
             transform: scale(1.1);
             box-shadow: 0px 0px 5px 5px #fffffe;
         }
-        
+        .phone_card{
+            margin-top: 80px;
+            color: #fffffe;
+            font-size: 25px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Phone Book</h1>
-        <input type="text" placeholder="Search..." class="input_box"/>
-        <button class="btn">Search</button>
-        <div id="phone_card"></div>
+        <input type="text" placeholder="Search..." class="input_box" id="input"/>
+        <button class="btn" onclick="search()">Search</button>
+        <div id="phone_card" class="phone_card"></div>
     </div>
+    <script>
+        const contacts = {
+            nidhi: "9846537829",
+            bhoomika: "8769835678",
+            komal: "7986535675",
+            maithili: "9124567894",
+            aryan: "8745356098",
+            kunal: "8560923457",
+            tejas: "9675904325",
+        };
+        function search(){
+            const inputelement = document.getElementById('input');
+            const change = inputelement.value.toLowerCase();
+
+            const mobile = contacts[change];
+            const phone_card = document.getElementById('phone_card');
+            if(mobile){
+                phone_card.innerText= `Mobile no of ${change} is ${mobile}`;
+            }
+            else{
+                phone_card.innerText = 'Contact not Found';
+            }
+        }
+    </script>
 </body>
 </html>
